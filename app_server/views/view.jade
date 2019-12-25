@@ -1,0 +1,55 @@
+doctype html
+head
+  title WDLx2
+  meta(charset='utf-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1')
+  // Bootstrap CSS
+  link(rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css')
+  // Bootstrap JS
+  script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js')
+  script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js')
+  script(src='https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js')
+  // Fonts
+  link(href='https://fonts.googleapis.com/css?family=Fira+Code&display=swap' rel='stylesheet')
+  link(href='https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap' rel='stylesheet')
+  link(href='https://fonts.googleapis.com/css?family=Bangers&display=swap' rel='stylesheet')
+  // Internal CSS
+  style.
+    .header__bg {
+    position: fixed;
+    top: 32%;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    width: 100%;
+    height: 48%;
+    background-image: linear-gradient(white, #3e4750);
+    transform: skewY(-12deg);
+    transform-origin: bottom right;
+    z-index: -1;
+    }
+    #try {
+    -webkit-box-shadow: 11px 11px 25px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 11px 11px 25px 0px rgba(0, 0, 0, 0.75);
+    box-shadow: 11px 11px 25px 0px rgba(0, 0, 0, 0.75)
+    }
+// Header
+p.text-center(style="font-family: 'Bangers', cursive; font-size: 80px; margin-top: 2%;") Hello echo(&quot;article_type&quot;)
+br
+br
+br
+br
+for note in notes
+    // Categories
+    .container
+    // Gradient
+    .header__bg
+    // Row1
+    .row
+        .col-sm-4
+        .card(style='width:300px')
+            .card-body
+            h4#title.card-title(name='title')
+            p#content.card-text(name='content')
+        br
+        br

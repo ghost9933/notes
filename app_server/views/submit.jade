@@ -1,0 +1,75 @@
+doctype html
+head
+  title notes
+  meta(charset='utf-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1')
+  // Bootstrap CSS
+  link(rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css')
+  // Bootstrap JS
+  script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js')
+  script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js')
+  script(src='https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js')
+  // Fonts
+  link(href='https://fonts.googleapis.com/css?family=Fira+Code&display=swap' rel='stylesheet')
+  link(href='https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap' rel='stylesheet')
+  link(href='https://fonts.googleapis.com/css?family=Bangers&display=swap' rel='stylesheet')
+  // Internal CSS
+  style.
+    .header__bg {
+    position: fixed;
+    top: 32%;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    width: 100%;
+    height: 48%;
+    background-image: linear-gradient(white, #3e4750);
+    transform: skewY(-12deg);
+    transform-origin: bottom right;
+    z-index: -1;
+    }
+    #try {
+    -webkit-box-shadow: 11px 11px 25px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 11px 11px 25px 0px rgba(0, 0, 0, 0.75);
+    box-shadow: 11px 11px 25px 0px rgba(0, 0, 0, 0.75)
+    }
+  script.
+    myFunction(){
+    d = new Date();
+    document.getElementsByName("date").value = d;
+    }
+// Header
+p.text-center(style="font-family: 'Bangers', cursive; font-size: 100px; margin-top: 2%;") NEW POST!
+br
+br
+// Categories
+.container
+  // Gradient
+  .header__bg
+  .row
+    .col-sm-2
+    .col-sm-8
+      .card(style='width:100%')
+        .card-body
+          form(action='note' method="POST")
+            .form-group
+              p.d-flex.justify-content-center(style="font-family: 'Caveat', cursive; font-size: 40px;")
+                b New Post!
+              br
+              input.form-control(type='text' placeholder='Enter Title' name='title' id="title")
+              br
+              //
+                <div class="row">
+                <div class="col-sm-6">
+                <input type="text" class="form-control" name="category" value="Category">
+                </div>
+                <div class="col-sm-6">
+                <input type="text" class="form-control" name="date" id="date" disabled>
+                </div>
+                </div>
+              br
+              textarea#comment.form-control(rows='10'  name="content")
+            br
+            button.btn.btn-primary.btn-lg.btn-block(type='submit') submit
+    .col-sm-2
+

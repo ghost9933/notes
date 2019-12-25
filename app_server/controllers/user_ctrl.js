@@ -2,6 +2,7 @@ const Note = require('../models/note.js');
 // Create and Save a new Note
 const create = (req, res) => {
     // Validate request
+    
     if(!req.body.content) {
         return res.status(400).send({
             message: "Note content can not be empty"
@@ -28,6 +29,7 @@ const create = (req, res) => {
 const findall =(req,res)=>{
     Note.find()
     .then(notes=>{
+        //render view with allm the posts
         res.send(notes);
     }).catch(err=>{
         res.status(500).send({
@@ -60,7 +62,7 @@ const findone =(req,res)=>{
 };
 const update  =(req,res)=>{
     //render page 
-    res.render('post');
+    res.render('index');
     //validate req
     if(!req.body.content){
         return res.status(400).send({
