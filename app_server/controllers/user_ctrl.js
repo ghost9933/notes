@@ -1,29 +1,32 @@
-const note = require('../models/note.js');
-const create =(req,res)=>{
-    //validate
-    if(!req.body.content){
+const Note = require('../models/note.js');
+// Create and Save a new Note
+const create = (req, res) => {
+    // Validate request
+    if(!req.body.content) {
         return res.status(400).send({
-            message:"note content cannot be empty"
+            message: "Note content can not be empty"
         });
     }
-    //create
-    const note = new note({
-        title:req.body.title || "untitled note",
-        content : req.body.content 
-    });
-    //save
-    note.save()
-    .then(data=>{
-        res.send(data);
-    }).catch(err=>{
-        res.status(500).send({
-            message:err.message || "some error ocured"
-        });
+
+    // Create a Note
+    const note = new Note({
+        title: req.body.title || "Untitled Note", 
+        content: req.body.content
     });
 
-};   
+    // Save Note in the database
+    note.save()
+    .then(data => {
+        res.send(data);
+    }).catch(err => {
+        res.status(500).send({
+            message: err.message || "Some error occurred while creating the Note."
+        });
+    });
+};
+  
 const findall =(req,res)=>{
-    note.find()
+    Note.find()
     .then(notes=>{
         res.send(notes);
     }).catch(err=>{
@@ -35,7 +38,7 @@ const findall =(req,res)=>{
 
 };
 const findone =(req,res)=>{
-    note.findById(req.params.noteId)
+    Note.findById(req.params.noteId)
     .then(note=>{
         if(!note){
             return res.status(404).send({
@@ -56,15 +59,17 @@ const findone =(req,res)=>{
 
 };
 const update  =(req,res)=>{
+    //render page 
+    res.render('post');
     //validate req
     if(!req.body.content){
-        return frames.status(400).send({
+        return res.status(400).send({
             message:"Note content can not be empty"
         });
     }
 
     //find note and updat it with the request body
-    note.findByIdAndUpdate(req.params.noteId,{
+    Note.findByIdAndUpdate(req.params.noteId,{
         title:req.body.title || "untitled note",
         content:req.body.content
     },{new:true})
@@ -88,7 +93,7 @@ const update  =(req,res)=>{
 
 };
 const del =(req,res)=>{
-    note.findByIdAndRemove(req.params.noteId)
+    Note.findByIdAndRemove(req.params.noteId)
         .then(note =>{
             if(!note){
                 return res.status(404).send({

@@ -7,6 +7,7 @@ router.get('/', function(req, res, next) {
   res.render('index',{title:"user page"});
 });
 router.post('/note',note.create);
+router.get('/note',note.findall);
 router.get('/note/:noteId',note.findone);
 router.put('/note/:noteId',note.update);
 router.delete('/note/:noteId',note.del);
