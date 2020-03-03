@@ -2,6 +2,8 @@
 const dbConfig = require('./db_config');
 const mongoose = require('mongoose');
 
+
+
 mongoose.Promise = global.Promise;
 
 // Connecting to the database
